@@ -1,0 +1,129 @@
+class Animals:
+# Общий вес для всех животных
+  total_weight = 0
+  # Вес самого тяжелого
+  the_heaviest = 0
+  # Имя самого тяжелого
+  the_heaviest_name = ""
+
+
+  def __init__(self, weight, name = ""):
+    way_to_speak = ''
+    self.weight = weight
+    self.name = name
+    
+    if self.weight > Animals.the_heaviest:
+      Animals.the_heaviest = self.weight
+      Animals.the_heaviest_name = self.name 
+    Animals.total_weight += weight
+
+  def feed(self):
+    print(self.way_to_speak, "Меня покормили")
+
+  def show_weight(self):
+    return self.weight
+
+
+class Geese(Animals):
+  def __init__(self, weight, name):
+    super().__init__(weight, name)
+    self.way_to_speak = "ГаГаГа"
+    self.eggs = 1
+
+  def get_eggs(self):
+    self.eggs =  0
+    print(self.way_to_speak, "Собрал яица")
+    
+geese_1 = Geese(10,"Серый")
+geese_1.feed()
+geese_1.get_eggs()
+
+geese_2 = Geese(7,"Белый")
+geese_2.feed()
+geese_2.get_eggs()
+
+class Cow(Animals):
+  def __init__(self, weight, name):
+    super().__init__(weight, name)
+    self.way_to_speak = "Муууууу"
+    self.milk = 10
+
+  def get_milk(self):
+    self.milk = 0
+    print ("Подоили")
+
+cow_1 = Cow(150, "Манька")
+cow_1.get_milk()
+cow_1.feed()
+
+
+class Sheep(Animals):
+  def __init__(self, weight, name):
+    super().__init__(weight, name)
+    self.way_to_speak = "Бэээээ"
+    self.wool = 10
+
+  def cut_wool(self):
+    self.wool = 0
+    print(self.way_to_speak, "Подстригли")
+
+
+sheep_1 = Sheep(25,"Барашек")
+sheep_1.feed()
+sheep_1.cut_wool()
+
+sheep_2 = Sheep(20,"Кудрявый")
+sheep_2.feed()
+sheep_2.cut_wool()
+
+
+class Hen(Animals):
+  def __init__(self, weight, name):
+    super().__init__(weight, name)
+    self.way_to_speak = "Ko Ko"
+    self.eggs = 1
+
+  def get_eggs(self):
+    self.eggs =  0
+    print(self.way_to_speak, "Собрал яица")
+
+hen_1 = Hen(5,"КО-КО")
+hen_1.feed()
+hen_1.get_eggs()
+
+hen_2 = Hen(7,"Кукареку")
+hen_2.feed()
+hen_2.get_eggs()
+
+class Goat(Animals):
+  def __init__(self, weight, name):
+    super().__init__(weight, name)
+    self.way_to_speak = "Meee"
+
+  def get_milk(self):
+    self.milk = 0
+    print ("Подоили")
+
+goat_1 = Goat(33,"Рога")
+goat_1.feed()
+goat_1.get_milk()
+
+goat_2 = Goat(33,"Копыта")
+goat_2.feed()
+goat_2.get_milk()
+
+class Duck(Animals):
+  def __init__(self, weight, name):
+    super().__init__(weight, name)
+    self.way_to_speak = "КряКря"
+
+  def get_eggs(self):
+    self.eggs =  0
+    print(self.way_to_speak, "Собрал яица")
+
+duck_1 = Duck(3,"Кряква")
+duck_1.feed()
+duck_1.get_eggs()
+
+print("\nОбщий вес всех зверей: ", Animals.total_weight, ' кг')
+print("\nСамое тяжелое животное ", Animals.the_heaviest_name, Animals.the_heaviest, "кг")
